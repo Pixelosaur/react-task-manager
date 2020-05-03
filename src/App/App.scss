@@ -1,0 +1,63 @@
+body {
+    min-height: 100vh;
+    background-color: #f4f4f8;
+    font-family: 'Jost', sans-serif;
+    color: #2d3142;
+    text-rendering: optimizeLegibility;
+
+    .container {
+        height: 100vh;
+        label,
+        .label {
+            font-size: 0.875rem;
+            color: #8d99ae;
+            font-weight: 600;
+        }
+
+        input {
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border-color: #2d3142;
+            }
+        }
+
+        .btn {
+            min-width: 120px;
+            letter-spacing: 0.25px;
+            transition: all 300ms linear;
+
+            &:focus,
+            &:active,
+            &:hover {
+                box-shadow: none;
+                outline: none;
+            }
+
+            &.btn-primary {
+                background-color: #6457a6;
+                border-color: #6457a6;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: #6457a6;
+                    background-color: transparent;
+                }
+            }
+
+            &.btn-secondary {
+                background-color: transparent;
+                border-color: #eca400;
+                color: #eca400;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: #eca400;
+                    color: white;
+                }
+            }
+        }
+    }
+}
