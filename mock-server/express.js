@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const tasks = require('./data/tasks');
+
 /** create new express app */
 const app = express();
 
@@ -25,6 +27,11 @@ app.use(
 /** mock '/' route */
 app.get('/', (req, res) => {
     res.send('Hello World!');
+});
+
+/** Tasks Endpoint */
+app.get('/tasks', (req, res) => {
+    return res.status(200).json(tasks);
 });
 
 /** express server runs at port :4000 */
