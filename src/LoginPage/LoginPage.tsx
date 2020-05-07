@@ -4,7 +4,7 @@ import './LoginPage.scss';
 export default class LoginPage extends Component {
     render() {
         return (
-            <div className="login">
+            <div className="login-container">
                 <h3 className="mb-4 page-title">Welcome</h3>
                 <div className="form-wrapper shadow-lg clearfix">
                     <form>
