@@ -21,7 +21,7 @@
         "typescript": "~3.7.2"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "concurrently --kill-others \"react-scripts start\" \"nodemon express.js\"",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
@@ -30,6 +30,11 @@
         "extends": "react-app"
     },
     "devDependencies": {
+        "body-parser": "^1.19.0",
+        "concurrently": "^5.2.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "nodemon": "^2.0.3",
         "prettier": "1.19.1"
     },
     "browserslist": {
