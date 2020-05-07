@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar/NavBar';
 import './TaskManagerPage.scss';
+import BootstrapTable from 'react-bootstrap-table-next';
+
+const tasks = [];
+const columns = [];
 
 export default class TaskManagerPage extends Component {
     render() {
@@ -9,7 +13,7 @@ export default class TaskManagerPage extends Component {
                 <NavBar />
                 <div className="row pt-5">
                     <div className="col">
-                        Task List
+                        <BootstrapTable bootstrap4 keyField='id' data={ tasks } columns={ columns } />
                     </div>
                 </div>
             </div>
