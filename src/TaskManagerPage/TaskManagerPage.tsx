@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import axios, { AxiosResponse } from 'axios';
 import NavBar from '../components/NavBar/NavBar';
 import './TaskManagerPage.scss';
 import BootstrapTable from 'react-bootstrap-table-next';
 
-const tasks = [];
-const columns = [];
+    componentDidMount() {
+        this.getTasks();
+    }
 
-export default class TaskManagerPage extends Component {
+    getTasks(): void {
+        axios
+            .get<TaskApiResponseInterface>(`${Config.SERVER_URL}/tasks`)
+            .then((response: AxiosResponse<TaskApiResponseInterface>) => {
+                console.log(response);
+            })
+            .catch((error: any) => console.log(error));
+    }
+
     render() {
         return (
             <div className="container-fluid">
