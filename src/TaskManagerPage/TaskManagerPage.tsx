@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios, {AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import NavBar from '../components/NavBar/NavBar';
 import './TaskManagerPage.scss';
 import BootstrapTable, { ColumnDescription } from 'react-bootstrap-table-next';
@@ -81,10 +81,17 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                             >
                                 {(props) => (
                                     <div>
-                                        <h3>Input something at below input field:</h3>
-                                        <SearchBar {...props.searchProps} />
-                                        <ClearSearchButton {...props.searchProps} />
-                                        <hr />
+                                        <div className="row mb-4">
+                                            <div className="col-4">
+                                                <SearchBar {...props.searchProps} />
+                                            </div>
+                                            <div className="col-2">
+                                                <ClearSearchButton
+                                                    className="btn btn-secondary"
+                                                    {...props.searchProps}
+                                                />
+                                            </div>
+                                        </div>
                                         <BootstrapTable
                                             pagination={paginationFactory({
                                                 sizePerPage: this.state.pageSize,
