@@ -57,6 +57,15 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                     {
                         dataField: 'status',
                         text: 'Status',
+                        formatter: (cellContent, row) => {
+                            if (row.status === 'Submitted') {
+                                return <span className="badge badge-success">{row.status}</span>;
+                            }
+                            if (row.status === 'Active') {
+                                return <span className="badge badge-info">{row.status}</span>;
+                            }
+                            return <span className="badge badge-warning">{row.status}</span>;
+                        },
                     },
                     {
                         dataField: 'dateCreated',
@@ -65,6 +74,12 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                     {
                         dataField: 'dateSubmitted',
                         text: 'Date Submitted',
+                        formatter: (cellContent, row) => {
+                            if (row.status !== 'Submitted') {
+                                return <span> N/A </span>;
+                            }
+                            return row.dateSubmitted;
+                        },
                     },
                     {
                         dataField: 'action',
