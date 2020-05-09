@@ -92,4 +92,21 @@ body {
         background-color: #eca400;
         border-color: transparent;
     }
+
+    .badge {
+        font-size: 0.875rem;
+        color: white;
+        min-width: 100px;
+
+        &.badge-success {
+            background-color: #06d6a0;
+        }
+        &.badge-info {
+            background-color: #4cc9f0;
+        }
+
+        &.badge-warning {
+            background-color: #fe6d73;
+        }
+    }
 }
