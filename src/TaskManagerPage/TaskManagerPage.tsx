@@ -15,7 +15,7 @@ const { SearchBar, ClearSearchButton } = Search;
 
 export default class TaskManagerPage extends Component<{}, TaskManagerStateInterface> {
     /* actions dropdown */
-    disabled: boolean = false;
+    disabled: boolean = true;
 
     /* Initialize state */
     state: TaskManagerStateInterface = {
