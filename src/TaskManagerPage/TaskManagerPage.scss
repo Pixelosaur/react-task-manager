@@ -1,7 +1,61 @@
 .container-fluid {
     margin-top: 56px;
 
-    .table-header {
-        color: #6457a6;
+    .table {
+        color: #2d3142;
+
+        .table-header {
+            color: #6457a6;
+        }
+
+        &.table-hover {
+            tbody {
+                tr {
+                    &:hover {
+                        color: #eca400;
+                        background-color: rgba(45, 49, 66, 0.1);
+                    }
+                }
+            }
+        }
+
+        &.table-striped {
+            tbody {
+                tr {
+                    &:nth-of-type(odd) {
+                        background-color: rgba(45, 49, 66, 0.06);
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination {
+        .page-item {
+            &.disabled {
+                .page-link {
+                    color: #2d3142;
+                    background-color: transparent;
+                    opacity: 0.6;
+                }
+            }
+
+            &.active {
+                .page-link {
+                    background-color: #6457a6;
+                    border-color: #6457a6;
+                    color: white;
+                }
+            }
+
+            .page-link {
+                color: #6457a6;
+                background-color: transparent;
+                border-color: #6457a6;
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
     }
 }
