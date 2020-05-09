@@ -54,6 +54,42 @@ body {
                 background-color: #eca400;
                 color: white;
             }
+
+            &.dropdown-toggle {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
         }
+    }
+
+    .dropdown-toggle {
+        &::after {
+            margin-left: 0.5em;
+            font-family: 'Font Awesome 5 Free';
+            content: '\f107';
+            font-size: 1em;
+            font-weight: 900;
+            vertical-align: middle;
+            border: none;
+        }
+
+        &:hover {
+            border-color: transparent;
+        }
+
+        &[disabled] {
+            pointer-events: none;
+            border-color: #2d3142;
+            color: #2d3142;
+            opacity: 0.6;
+        }
+    }
+
+    .btn-secondary:not(:disabled):not(.disabled):active,
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .show > .btn-secondary.dropdown-toggle {
+        background-color: #eca400;
+        border-color: transparent;
     }
 }

@@ -9,10 +9,14 @@ import { TaskInterface } from '../interfaces/Task.interface';
 import { TaskApiResponseInterface } from '../interfaces/TaskApiResponse.interface';
 import { TaskManagerStateInterface } from '../interfaces/TaskManagerState.interface';
 import * as Config from '../configuration/config';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const { SearchBar, ClearSearchButton } = Search;
 
 export default class TaskManagerPage extends Component<{}, TaskManagerStateInterface> {
+    /* actions dropdown */
+    disabled: boolean = false;
+
     /* Initialize state */
     state: TaskManagerStateInterface = {
         tasks: [],
@@ -91,14 +95,36 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                                                     {...props.searchProps}
                                                 />
                                             </div>
+                                            <div className="col-6 text-right">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle
+                                                        disabled={this.disabled}
+                                                        variant="secondary"
+                                                        id="dropdown-basic"
+                                                    >
+                                                        Select Action
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/action-1">
+                                                            Edit
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-2">
+                                                            Delete
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-3">
+                                                            Update Status
+                                                        </Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
                                         </div>
                                         <BootstrapTable
-                                            pagination={paginationFactory({
-                                                sizePerPage: this.state.pageSize,
-                                            })}
+                                            pagination={paginationFactory(Config.paginationOptions)}
                                             striped={true}
                                             hover={true}
                                             selectRow={Config.selectRow}
+                                            headerClasses="table-header"
                                             {...props.baseProps}
                                         />
                                     </div>
