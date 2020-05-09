@@ -17,7 +17,6 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
     state: TaskManagerStateInterface = {
         tasks: [],
         columns: [],
-        pageSize: 10,
         isLoaded: false,
     };
 
