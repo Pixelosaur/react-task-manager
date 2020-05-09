@@ -10,6 +10,7 @@ import { TaskApiResponseInterface } from '../interfaces/TaskApiResponse.interfac
 import { TaskManagerStateInterface } from '../interfaces/TaskManagerState.interface';
 import * as Config from '../configuration/config';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Moment from 'react-moment';
 
 const { SearchBar, ClearSearchButton } = Search;
 
@@ -70,6 +71,9 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                     {
                         dataField: 'dateCreated',
                         text: 'Date Created',
+                        formatter: (cellContent, row) => {
+                            return <Moment format="DD:MM:YYYY hh:mm">{row.dateCreated}</Moment>;
+                        },
                     },
                     {
                         dataField: 'dateSubmitted',
@@ -78,7 +82,7 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                             if (row.status !== 'Submitted') {
                                 return <span> N/A </span>;
                             }
-                            return row.dateSubmitted;
+                            return <Moment format="DD:MM:YYYY hh:mm">{row.dateSubmitted}</Moment>;
                         },
                     },
                     {
