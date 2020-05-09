@@ -6,4 +6,5 @@ export interface TaskInterface {
     status: string;
     dateCreated: Date;
     dateSubmitted: Date;
+    action: string;
 }

@@ -4,6 +4,30 @@
     .table {
         color: #2d3142;
 
+        tbody {
+            tr {
+                .table-action-link {
+                    color: #6457a6;
+                    transition: all 200ms linear;
+
+                    &:hover {
+                        color: #eca400;
+                    }
+                }
+            }
+
+            .selected-row {
+                td {
+                    background-color: #6457a6;
+                    color: white;
+                }
+
+                .table-action-link {
+                    color: white;
+                }
+            }
+        }
+
         .table-header {
             color: #6457a6;
         }
@@ -11,9 +35,14 @@
         &.table-hover {
             tbody {
                 tr {
+                    transition: all 200ms linear;
                     &:hover {
                         color: #eca400;
                         background-color: rgba(45, 49, 66, 0.1);
+
+                        .table-action-link {
+                            color: #eca400;
+                        }
                     }
                 }
             }

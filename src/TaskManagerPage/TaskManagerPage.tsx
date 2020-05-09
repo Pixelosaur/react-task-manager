@@ -32,7 +32,11 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
         axios
             .get<TaskApiResponseInterface>(`${Config.SERVER_URL}/tasks`)
             .then((response: AxiosResponse<TaskApiResponseInterface>) => {
-                const tasks: TaskInterface[] = response.data.tasks;
+                const action: string = 'Open';
+                const tasks: TaskInterface[] = response.data.tasks.map((task: TaskInterface) => {
+                    return { ...task, action };
+                });
+
                 const columns: ColumnDescription[] = [
                     {
                         dataField: 'id',
@@ -61,6 +65,15 @@ export default class TaskManagerPage extends Component<{}, TaskManagerStateInter
                     {
                         dataField: 'dateSubmitted',
                         text: 'Date Submitted',
+                    },
+                    {
+                        dataField: 'action',
+                        text: 'Action',
+                        formatter: (cellContent, row) => (
+                            <a href="#" className="table-action-link">
+                                <i className="fas fa-external-link-alt" />
+                            </a>
+                        ),
                     },
                 ];
 

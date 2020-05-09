@@ -7,11 +7,8 @@ export const SERVER_URL: string = `http://localhost:4000`;
 export const selectRow: SelectRowProps<any> = {
     mode: 'checkbox',
     hideSelectAll: false,
-    clickToSelect: true,
-    style: { background: '#6457a6', color: '#fff' },
-    onSelect: (isSelect) => {
-        return isSelect;
-    },
+    clickToSelect: false,
+    classes: 'selected-row',
 };
 
 export const paginationOptions: PaginationOptions = {
