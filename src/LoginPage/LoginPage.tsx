@@ -10,40 +10,56 @@ export default class LoginPage extends Component<{}, LoginStateInterface> {
         submitted: false,
     };
 
-    onLogin(ev: any): void {
-        ev.preventDefault();
+    handleUsernameChange(ev: any): void {
+        this.setState({ username: ev.target.value });
+    }
 
+    handlePasswordChange(ev: any): void {
+        this.setState({ password: ev.target.value });
+    }
+
+    onSubmit(ev: any): void {
+        ev.preventDefault();
         this.setState({ submitted: true });
     }
 
     render() {
+        const { username, password, submitted } = this.state;
         return (
             <div className="login-container">
                 <h3 className="mb-4 page-title">Welcome</h3>
                 <div className="form-wrapper shadow-lg clearfix">
-                    <form onSubmit={this.onLogin.bind(this)}>
+                    <form onSubmit={this.onSubmit.bind(this)}>
                         <div
-                            className={
-                                'form-group' +
-                                (this.state.submitted && !this.state.username ? ' has-error' : '')
-                            }
+                            className={'form-group' + (submitted && !username ? ' has-error' : '')}
                         >
                             <label htmlFor="email">Email address</label>
-                            <input type="email" className="form-control" id="email" />
-                            {this.state.submitted && !this.state.username && (
-                                <div className="error-text">Username is required</div>
+                            <input
+                                type="email"
+                                className="form-control"
+                                id="email"
+                                name="email"
+                                value={this.state.username}
+                                onChange={this.handleUsernameChange.bind(this)}
+                            />
+                            {submitted && !username && (
+                                <div className="error-text">Email is required</div>
                             )}
                         </div>
 
                         <div
-                            className={
-                                'form-group' +
-                                (this.state.submitted && !this.state.username ? ' has-error' : '')
-                            }
+                            className={'form-group' + (submitted && !password ? ' has-error' : '')}
                         >
                             <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" id="password" />
-                            {this.state.submitted && !this.state.password && (
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="password"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.handlePasswordChange.bind(this)}
+                            />
+                            {submitted && !password && (
                                 <div className="error-text">Password is required</div>
                             )}
                         </div>
