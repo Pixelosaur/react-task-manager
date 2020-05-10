@@ -1,58 +1,65 @@
 .container-fluid {
     margin-top: 56px;
 
-    .table {
-        color: #2d3142;
+    .react-bootstrap-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
 
-        tbody {
-            tr {
-                .table-action-link {
-                    color: #6457a6;
-                    transition: all 200ms linear;
+        .table {
+            table-layout: auto;
+            color: #2d3142;
 
-                    &:hover {
-                        color: #eca400;
-                    }
-                }
-            }
-
-            .selected-row {
-                td {
-                    background-color: #6457a6;
-                    color: white;
-                }
-
-                .table-action-link {
-                    color: white;
-                }
-            }
-        }
-
-        .table-header {
-            color: #6457a6;
-        }
-
-        &.table-hover {
             tbody {
                 tr {
-                    transition: all 200ms linear;
-                    &:hover {
-                        color: #eca400;
-                        background-color: rgba(45, 49, 66, 0.1);
+                    .table-action-link {
+                        color: #6457a6;
+                        transition: all 200ms linear;
 
-                        .table-action-link {
+                        &:hover {
                             color: #eca400;
                         }
                     }
                 }
-            }
-        }
 
-        &.table-striped {
-            tbody {
-                tr {
-                    &:nth-of-type(odd) {
-                        background-color: rgba(45, 49, 66, 0.06);
+                .selected-row {
+                    td {
+                        background-color: #6457a6;
+                        color: white;
+                    }
+
+                    .table-action-link {
+                        color: white;
+                    }
+                }
+            }
+
+            .table-header {
+                color: #6457a6;
+            }
+
+            &.table-hover {
+                tbody {
+                    tr {
+                        transition: all 200ms linear;
+                        &:hover {
+                            color: #eca400;
+                            background-color: rgba(45, 49, 66, 0.1);
+
+                            .table-action-link {
+                                color: #eca400;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.table-striped {
+                tbody {
+                    tr {
+                        &:nth-of-type(odd) {
+                            background-color: rgba(45, 49, 66, 0.06);
+                        }
                     }
                 }
             }
