@@ -11,10 +11,11 @@ import { TaskManagerStateInterface } from '../interfaces/TaskManagerState.interf
 import * as Config from '../configuration/config';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Moment from 'react-moment';
+import { RouteProps } from 'react-router';
 
 const { SearchBar, ClearSearchButton } = Search;
 
-export default class TaskManagerPage extends Component<{}, TaskManagerStateInterface> {
+export default class TaskManagerPage extends Component<RouteProps, TaskManagerStateInterface> {
     /* actions dropdown */
     disabled: boolean = true;
 
