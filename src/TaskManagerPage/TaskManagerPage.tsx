@@ -39,65 +39,7 @@ export default class TaskManagerPage extends Component<RouteProps, TaskManagerSt
                     return { ...task, action };
                 });
 
-                const columns: ColumnDescription[] = [
-                    {
-                        dataField: 'id',
-                        text: 'ID',
-                    },
-                    {
-                        dataField: 'project',
-                        text: 'Project',
-                    },
-                    {
-                        dataField: 'type',
-                        text: 'Type',
-                    },
-                    {
-                        dataField: 'credits',
-                        text: 'Credits',
-                    },
-                    {
-                        dataField: 'status',
-                        text: 'Status',
-                        formatter: (cellContent, row) => {
-                            if (row.status === 'Submitted') {
-                                return <span className="badge badge-success">{row.status}</span>;
-                            }
-                            if (row.status === 'Active') {
-                                return <span className="badge badge-info">{row.status}</span>;
-                            }
-                            return <span className="badge badge-warning">{row.status}</span>;
-                        },
-                    },
-                    {
-                        dataField: 'dateCreated',
-                        text: 'Date Created',
-                        formatter: (cellContent, row) => {
-                            return <Moment format="DD:MM:YYYY hh:mm">{row.dateCreated}</Moment>;
-                        },
-                    },
-                    {
-                        dataField: 'dateSubmitted',
-                        text: 'Date Submitted',
-                        formatter: (cellContent, row) => {
-                            if (row.status !== 'Submitted') {
-                                return <span> N/A </span>;
-                            }
-                            return <Moment format="DD:MM:YYYY hh:mm">{row.dateSubmitted}</Moment>;
-                        },
-                    },
-                    {
-                        dataField: 'action',
-                        text: 'Action',
-                        formatter: (cellContent, row) => (
-                            <a href="#" className="table-action-link">
-                                <i className="fas fa-external-link-alt" />
-                            </a>
-                        ),
-                    },
-                ];
-
-                this.setState({ tasks, columns, isLoaded: true });
+                this.setState({ tasks, columns: Config.columns, isLoaded: true });
             })
             .catch((error: any) => console.log(error));
     }
