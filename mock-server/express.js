@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const tasks = require('./data/tasks');
+const auth = require('./data/auth');
 
 /** create new express app */
 const app = express();
@@ -32,6 +33,11 @@ app.get('/', (req, res) => {
 /** Tasks Endpoint */
 app.get('/tasks', (req, res) => {
     return res.status(200).json(tasks);
+});
+
+/** Login Endpoint */
+app.post('/auth', (req, res) => {
+    return res.status(200).json(auth);
 });
 
 /** express server runs at port :4000 */
