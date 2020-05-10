@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './LoginPage.scss';
+import auth from '../auth/auth';
 import { LoginStateInterface } from '../interfaces/LoginState.interface';
+import { RouterProps } from 'react-router';
 
-export default class LoginPage extends Component<{}, LoginStateInterface> {
+export default class LoginPage extends Component<RouterProps, LoginStateInterface> {
     /* Initialize State */
     state: LoginStateInterface = {
         username: '',
@@ -21,6 +23,14 @@ export default class LoginPage extends Component<{}, LoginStateInterface> {
     onSubmit(ev: any): void {
         ev.preventDefault();
         this.setState({ submitted: true });
+
+        const { username, password } = this.state;
+
+        if (username && password) {
+            auth.login(() => {
+                this.props.history.push('/task-manager');
+            });
+        }
     }
 
     render() {
